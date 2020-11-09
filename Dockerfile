@@ -4,8 +4,9 @@ FROM nginx:1.11.9
 ARG GRAV_VERSION=1.6.28
 
 # Install dependencies
-RUN apt-get update && \
-    apt-get install -y sudo wget vim unzip php7.3 php7.3-curl php7.3-gd php-pclzip php7.3-fpm
+RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys AA8E81B4331F7F50 \
+    && apt-get update \
+    && apt-get install -y sudo wget vim unzip php7.3 php7.3-curl php7.3-gd php-pclzip php7.3-fpm
 ADD https://github.com/krallin/tini/releases/download/v0.13.2/tini /usr/local/bin/tini
 RUN chmod +x /usr/local/bin/tini
 
