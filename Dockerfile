@@ -4,8 +4,9 @@ FROM nginx:1.19.4
 ARG GRAV_VERSION=1.6.28
 
 # Install dependencies
-RUN apt update && \
-    apt install -y sudo wget nano unzip php7.3 php7.3-curl php7.3-gd php-pclzip php7.3-fpm
+RUN apt-get update && \
+    apt-get install -y sudo wget nano unzip
+RUN apt-get install -y php7.3 php7.3-curl php7.3-gd php-pclzip php7.3-fpm
 ADD https://github.com/krallin/tini/releases/download/v0.13.2/tini /usr/local/bin/tini
 RUN chmod +x /usr/local/bin/tini
 
@@ -27,8 +28,8 @@ USER root
 # Install Acmetool Let's Encrypt client
 RUN echo 'deb http://ppa.launchpad.net/hlandau/rhea/ubuntu xenial main' > /etc/apt/sources.list.d/rhea.list \
     && apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 9862409EF124EC763B84972FF5AC9651EDB58DFA \
-    && apt update \
-    && apt install acmetool
+    && apt-get update \
+    && apt-get install -y acmetool
 
 # Configure nginx with grav
 WORKDIR grav-admin
