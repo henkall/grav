@@ -1,4 +1,4 @@
-FROM nginx:1.19.4
+FROM nginx:1.19.4-perl
 
 # Desired version of grav
 ARG GRAV_VERSION=1.6.28
