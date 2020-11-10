@@ -68,6 +68,7 @@ function configure_nginx() {
 
         echo "[ INFO ]  > Setting server_name to" ${DOMAIN} www.${DOMAIN}
         sed -i 's/server_name localhost/server_name '${DOMAIN}' 'www.${DOMAIN}'/g' /etc/nginx/conf.d/default.conf
+        sed -i 's/php7.2/php7.3/g' /etc/nginx/conf.d/default.conf
     fi
 }
 
