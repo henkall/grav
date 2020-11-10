@@ -73,7 +73,7 @@ function configure_nginx() {
 
 function start_services() {
     echo "[ INFO ] Starting nginx"
-    bash -c 'php-fpm7.3 -D; nginx -g "daemon off;"'
+    bash -c 'php7.3-fpm -D; nginx -g "daemon off;"'
 }
 
 
