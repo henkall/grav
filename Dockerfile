@@ -5,9 +5,9 @@ ARG GRAV_VERSION=1.6.28
 
 # Install dependencies
 RUN apt-get update && \
-    apt-get install -y sudo wget unzip
+    apt-get install -y sudo wget unzip gnupg2
 RUN apt-get update && \
-    apt-get install -y php7.3 php7.3-curl php7.3-gd php7.3-fpm
+    apt-get install -y php7.3 php7.3-curl php7.3-gd php7.3-fpm php7.3-mbstring
 ADD https://github.com/krallin/tini/releases/download/v0.13.2/tini /usr/local/bin/tini
 RUN chmod +x /usr/local/bin/tini
 
