@@ -3,10 +3,9 @@ FROM nginx:1.19.4
 # Desired version of grav
 ARG GRAV_VERSION=1.6.28
 
-# Install dependencies for php
-RUN apt-get update \
-    && apt-get install -y sudo wget vim unzip ca-certificates apt-transport-https php7.3 php7.3-curl php7.3-gd php-pclzip php7.3-fpm
-
+# Install dependencies
+RUN apt-get update && \
+    apt-get install -y sudo wget vim unzip php5 php5-curl php5-gd php-pclzip php5-fpm
 ADD https://github.com/krallin/tini/releases/download/v0.13.2/tini /usr/local/bin/tini
 RUN chmod +x /usr/local/bin/tini
 
