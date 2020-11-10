@@ -5,7 +5,7 @@ ARG GRAV_VERSION=1.6.28
 
 # Install dependencies
 RUN apt-get update && \
-    apt-get install -y sudo wget vim unzip php5 php5-curl php5-gd php-pclzip php5-fpm
+    apt-get install -y sudo wget vim unzip php7.3 php7.3-curl php7.3-gd php-pclzip php7.3-fpm
 ADD https://github.com/krallin/tini/releases/download/v0.13.2/tini /usr/local/bin/tini
 RUN chmod +x /usr/local/bin/tini
 
